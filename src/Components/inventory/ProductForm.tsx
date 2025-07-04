@@ -30,7 +30,6 @@ const ProductForm = () => {
       </Box>
       <Box>
         <TextField
-          type="number"
           id="outlined-basic"
           label="HSN "
           variant="outlined"

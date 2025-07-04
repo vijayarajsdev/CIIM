@@ -26,7 +26,7 @@ const Customers = () => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <Typography>Inventory</Typography>
+        <Typography>Customers</Typography>
         <Button onClick={handleCustomerForm} color="primary" variant="outlined">
           Add Customer
         </Button>
