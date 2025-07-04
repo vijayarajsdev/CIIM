@@ -766,3 +766,24 @@ export const customerfields = [
   { field: "mobile" },
   { field: "gst" },
 ];
+export const data = [
+  { month: "Jan", sales: 12000 },
+  { month: "Feb", sales: 15000 },
+  { month: "Mar", sales: 18000 },
+  { month: "Apr", sales: 17000 },
+  { month: "May", sales: 21000 },
+  { month: "Jun", sales: 19000 },
+  { month: "Jul", sales: 22000 },
+  { month: "Aug", sales: 25000 },
+  { month: "Sep", sales: 23000 },
+  { month: "Oct", sales: 24000 },
+  { month: "Nov", sales: 20000 },
+  { month: "Dec", sales: 26000 },
+];
+export const topSellingProducts = [
+  { product: 'Hydraulic Hose 1/2"', sales: 320 },
+  { product: "Elbow Fitting 90°", sales: 270 },
+  { product: "Quick Coupler", sales: 210 },
+  { product: "Hose Clamp SS", sales: 180 },
+  { product: "Hydraulic Oil Seal", sales: 150 },
+];
