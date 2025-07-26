@@ -1,10 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Box,
-} from "@mui/material";
+import { List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
 import { Dashboard, Inventory, People, FileCopy } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 
@@ -19,9 +13,11 @@ const Sidebar = () => {
     <Box
       sx={{
         backgroundColor: "yellow",
-        height: "calc(100vh-64px)",
+        height: "calc(100vh - 64px)",
         display: "flex",
         flexDirection: "column",
+        position: "fixed",
+        mt: "64px",
       }}
     >
       <List sx={{ flexGrow: 1 }}>
