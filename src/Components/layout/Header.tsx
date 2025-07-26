@@ -25,7 +25,7 @@ const Header = () => {
         </Typography>
        
         <Typography variant="subtitle1" sx={{ marginLeft: "auto" }}>
-          Welcome to CIIM
+          Welcome Vijayaraj S
         </Typography>
       </Toolbar>
     </AppBar>

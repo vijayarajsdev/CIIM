@@ -1,16 +1,32 @@
-import { Typography, Box, Grid, TextField, Input } from "@mui/material";
+import { Typography, Box, Grid, TextField, Button } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 const InvoiceTemplate = () => {
+  const navigate = useNavigate();
+  const handlecloseinvoice = () => {
+    navigate("/invoices");
+  };
   return (
     <Box>
       <Typography>InvoiceTemplate</Typography>
+      <Button
+        onClick={handlecloseinvoice}
+        sx={{
+          position: "absolute",
+          right: "40px",
+          top: "80px",
+        }}
+      >
+        <CloseIcon />
+      </Button>
       <Box sx={{ padding: 4 }}>
         <Grid container alignItems="center">
           <Grid size={1.5}>
             <Typography>Customer Name</Typography>
           </Grid>
           <Grid size={10.5}>
-            <TextField variant="outlined" fullWidth size="small"/>
+            <TextField variant="outlined" fullWidth size="small" />
           </Grid>
         </Grid>
         <Grid container alignItems="center" mt={2} spacing={2}>
@@ -18,13 +34,13 @@ const InvoiceTemplate = () => {
             <Typography>Order No</Typography>
           </Grid>
           <Grid size={2.5}>
-            <TextField size="small"/>
+            <TextField size="small" />
           </Grid>
           <Grid size={1.5}>
             <Typography>Invoice No</Typography>
           </Grid>
           <Grid size={2.5}>
-            <TextField  size="small"/>
+            <TextField size="small" />
           </Grid>
           <Grid></Grid>
         </Grid>
@@ -33,13 +49,13 @@ const InvoiceTemplate = () => {
             <Typography>Invoice Date</Typography>
           </Grid>
           <Grid size={2.5}>
-            <TextField type="date" size="small"/>
+            <TextField type="date" size="small" />
           </Grid>
           <Grid size={1.5}>
             <Typography>Terms</Typography>
           </Grid>
           <Grid size={2.5}>
-            <TextField size="small"/>
+            <TextField size="small" />
           </Grid>
           <Grid size={1.5}>
             <Typography>Due Date</Typography>
