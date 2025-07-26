@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 const firebaseConfig={
-    apiKey: "AIzaSyDM2JSXXyOG0DJNYJWuXHqxIwNGh_2WAX4",
-  authDomain: "ciim-auth.firebaseapp.com",
-  projectId: "ciim-auth",
-  storageBucket: "ciim-auth.firebasestorage.app",
-  messagingSenderId: "490766361548",
-  appId: "1:490766361548:web:157a22e6a5b83a5d53f369",
-  measurementId: "G-Z75TRFBLTZ"};
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain:import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket:import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,};
 const app=initializeApp(firebaseConfig);
 export const auth=getAuth(app);
