@@ -1,0 +1,32 @@
+.carosel{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.carosel-track{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLeft 10s linear infinite;
+    
+}
+.carosel-track img{
+width: 150px;
+height: 100px;
+margin-right: 10px;
+}
+@keyframes scrollLeft{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+    0%{
+        transform: translateX(50%);
+    }
+   
+}
+.carosel:hover .carosel-track {
+  animation-play-state: paused;
+}

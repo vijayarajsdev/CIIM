@@ -1,8 +1,11 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import MonthlySalesChart from "./MonthlySalesChart";
 import TopSellingProductsChart from "./TopSellingProductsChart";
+import { customersData, productsData } from "../../Data";
 
 const Dashboard = () => {
+  const totalproducts = productsData?.length;
+  const totalcustomers = customersData?.length;
   return (
     <Box>
       <Typography variant="h4" gutterBottom>
@@ -12,13 +15,13 @@ const Dashboard = () => {
         <Grid>
           <Paper elevation={3} sx={{ p: 3 }}>
             <Typography>Total Products</Typography>
-            <Typography variant="h5">52</Typography>
+            <Typography variant="h5">{totalproducts}</Typography>
           </Paper>
         </Grid>
         <Grid>
           <Paper elevation={3} sx={{ p: 3 }}>
             <Typography>Total Customers</Typography>
-            <Typography variant="h5">20</Typography>
+            <Typography variant="h5">{totalcustomers}</Typography>
           </Paper>
         </Grid>
         <Grid>

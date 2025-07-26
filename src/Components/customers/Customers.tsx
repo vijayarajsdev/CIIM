@@ -31,7 +31,7 @@ const Customers = () => {
           Add Customer
         </Button>
       </Box>
-      <Box sx={{ height: 500 }}>
+      <Box sx={{ height: 550 }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={colDefs}

@@ -6,6 +6,7 @@ import Products from "../Components/inventory/Products";
 import Dashboard from "../Components/dashboard/Dashboard";
 import ProductForm from "../Components/inventory/ProductForm";
 import CustomerForm from "../Components/customers/CustomerForm";
+import InvoiceTemplate from "../Components/invoices/InvoiceTemplate";
 
 export const Router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ export const Router = createBrowserRouter([
         path: "invoices",
         element: <Invoices />,
         errorElement: <div>Invoices Error Page</div>,
+      },
+      {
+        path: "invoice",
+        element: <InvoiceTemplate />,
+        errorElement: <div>Oops Technical Error</div>,
       },
     ],
   },

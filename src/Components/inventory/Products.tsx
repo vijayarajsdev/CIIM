@@ -29,7 +29,7 @@ navigate('/addproduct')
         <Typography>Inventory</Typography>
         <Button onClick={handleProductForm} color="primary" variant="outlined">Add Product</Button>
       </Box>
-      <Box sx={{ height: 500 }}>
+      <Box sx={{ height: 550 }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={colDefs}
