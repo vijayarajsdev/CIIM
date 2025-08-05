@@ -1,8 +1,5 @@
 // Login.tsx
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebaseConfig";
-import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -11,26 +8,29 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useAuth } from "../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const { login, isLoading, error } = useAuth();
   const [password, setPassword] = useState("");
   const [loginerror, setLoginerror] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleLogin = async () => {
     if (!email || !password) {
       setLoginerror("Please Enter Username/Password");
     } else {
-      setLoading(true);
+      setLoading(isLoading);
       setLoginerror("");
       try {
-        await signInWithEmailAndPassword(auth, email, password);
+        await login({ email, password });
         navigate("/");
       } catch {
-        setLoginerror("Incorrect Username/Password");
+        setLoginerror(error ? error : "Incorrect Username/Password");
       } finally {
-        setLoading(false);
+        setLoading(isLoading);
       }
     }
   };
@@ -41,10 +41,17 @@ export default function Login() {
         textAlign: "center",
         backgroundColor: "blueviolet",
         height: "100vh",
-        width:"100vw"
+        width: "100vw",
       }}
     >
-      <Box sx={{position:"absolute", right: "50px",top:"25px" ,color:"aliceblue"}}>
+      <Box
+        sx={{
+          position: "absolute",
+          right: "50px",
+          top: "25px",
+          color: "aliceblue",
+        }}
+      >
         <Typography variant="h4" component="div">
           CIIM
         </Typography>

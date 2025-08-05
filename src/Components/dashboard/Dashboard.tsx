@@ -7,27 +7,56 @@ const Dashboard = () => {
   const totalproducts = productsData?.length;
   const totalcustomers = customersData?.length;
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ padding: 1 }}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ fontFamily: "poppins", fontWeight: 600, color: "#4A3AFF" }}
+      >
         Dashboard
       </Typography>
       <Grid container spacing={2}>
         <Grid>
           <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography>Total Products</Typography>
-            <Typography variant="h5">{totalproducts}</Typography>
+            <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
+              Total Products
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                fontFamily: "poppins",
+                fontWeight: 600,
+                color: "#4A3AFF",
+              }}
+            >
+              {totalproducts}
+            </Typography>
           </Paper>
         </Grid>
         <Grid>
           <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography>Total Customers</Typography>
-            <Typography variant="h5">{totalcustomers}</Typography>
+            <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
+              Total Customers
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontFamily: "poppins", fontWeight: 600, color: "#4A3AFF" }}
+            >
+              {totalcustomers}
+            </Typography>
           </Paper>
         </Grid>
         <Grid>
           <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography>Inventory Value</Typography>
-            <Typography variant="h5">$52245</Typography>
+            <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
+              Inventory Value
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontFamily: "poppins", fontWeight: 600, color: "#4A3AFF" }}
+            >
+              $52245
+            </Typography>
           </Paper>
         </Grid>
       </Grid>

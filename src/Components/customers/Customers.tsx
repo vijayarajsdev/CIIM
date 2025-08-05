@@ -1,18 +1,53 @@
 import { Typography, Box, Button } from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Customer } from "../../Types";
 import {
   AllCommunityModule,
   ModuleRegistry,
   type ColDef,
+  type ICellRendererParams,
+  type ValueFormatterParams,
 } from "ag-grid-community";
-import { customerfields, customersData } from "../../Data";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchCustomers } from "./customerservice";
+import { useAuth } from "../../Hooks/useAuth";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const Customers = () => {
-  const [rowData] = useState<Customer[]>(customersData);
+  const [customersData, setCustomersData] = useState<Customer[]>();
+  const { user } = useAuth();
+  const tenantId = user?.tenantId;
+  const customerfields = [
+    { field: "name" },
+    { field: "companyname", headerName: "organisation" },
+    {
+      field: "isGstRegistered",
+    },
+    { field: "address" },
+    { field: "phone", headerName: "mobile" },
+    { field: "gstno", headerName: "GST No" },
+    {
+      field: "action",
+      headerName: "Action",
+      cellRenderer: (params: ICellRendererParams<Customer>) => {
+        if (!params.data) return null;
+        return <Link to={`/editcustomer/${params.data.id}`}>Edit</Link>;
+      },
+    },
+  ];
+  useEffect(() => {
+    const fetchcustomersdata = async () => {
+      if (!tenantId) return;
+      const customersdata = await fetchCustomers(tenantId);
+      if (customersdata.status === 200) {
+        setCustomersData(customersdata.data);
+      } else {
+        alert("unable to fetch customers");
+      }
+    };
+    fetchcustomersdata();
+  }, [tenantId]);
   const [colDefs] = useState<ColDef[]>(customerfields);
   const navigate = useNavigate();
   const defaultColDef: ColDef = {
@@ -33,7 +68,7 @@ const Customers = () => {
       </Box>
       <Box sx={{ height: 550 }}>
         <AgGridReact
-          rowData={rowData}
+          rowData={customersData}
           columnDefs={colDefs}
           paginationPageSize={10}
           pagination={true}

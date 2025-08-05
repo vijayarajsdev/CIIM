@@ -34,6 +34,9 @@ const InvoiceTemplate = () => {
     const updatedItems = items.filter((_, i) => i !== index);
     setItems(updatedItems);
   };
+  const handlesave = () => {
+    navigate("/preview");
+  };
 
   const subtotal = items.reduce((acc, item) => acc + item.amount, 0);
 
@@ -145,7 +148,15 @@ const InvoiceTemplate = () => {
       {/* Subtotal Section */}
       <Box sx={{ px: 4, mt: 4, bgcolor: "#f9f9f9", py: 2, borderRadius: 2 }}>
         <Grid container spacing={2}>
-          <Grid size={6}><Button sx={{mt:"200px",px:"30px"}} variant="contained">Save</Button></Grid>
+          <Grid size={6}>
+            <Button
+              sx={{ mt: "200px", px: "30px" }}
+              variant="contained"
+              onClick={handlesave}
+            >
+              Save
+            </Button>
+          </Grid>
           <Grid size={6}>
             <Grid container spacing={2}>
               <Grid size={6}>

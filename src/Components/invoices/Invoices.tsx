@@ -1,8 +1,7 @@
-
 import { Box, Button, Typography } from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { invoicesData, invoicesFields } from "../../Data";
 import type { ColDef } from "ag-grid-community";
 const Invoices = () => {

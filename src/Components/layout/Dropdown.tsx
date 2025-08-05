@@ -18,7 +18,6 @@ const Dropdown: React.FC<DropdownOption> = ({ onSelect }) => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     onSelect(event.target.value);
-    console.log("Selected value inside component:", event.target.value);
   };
   return (
     <>

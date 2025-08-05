@@ -8,6 +8,7 @@ import { topSellingProducts } from "../../Data";
 const options: AgCartesianChartOptions = {
   title: {
     text: "Top Selling Products",
+    color: "#4A3AFF",
   },
   data: topSellingProducts,
   series: [
@@ -15,7 +16,7 @@ const options: AgCartesianChartOptions = {
       type: "bar",
       xKey: "product",
       yKey: "sales",
-      fill: "#4CAF50",
+      fill: "#4A3AFF",
     } as AgBarSeriesOptions,
   ],
 };
