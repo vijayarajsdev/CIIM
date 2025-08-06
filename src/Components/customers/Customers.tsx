@@ -7,7 +7,6 @@ import {
   ModuleRegistry,
   type ColDef,
   type ICellRendererParams,
-  type ValueFormatterParams,
 } from "ag-grid-community";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchCustomers } from "./customerservice";

@@ -21,10 +21,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       setLoading(true);
       setError(null);
       const response = await loginUser(payload);
-      localStorage.setItem("authToken", response.token);
-      localStorage.setItem("authUser", JSON.stringify(response.user));
-      setToken(response.token);
-      setUser(response.user);
+      const { token, user } = response.data;
+      localStorage.setItem("authToken",token);
+      localStorage.setItem("authUser", JSON.stringify(user));
+      setToken(token);
+      setUser(user);
     } catch (err: any) {
       setError(err?.response?.data?.message || "Login failed");
     } finally {
