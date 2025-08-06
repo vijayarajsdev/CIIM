@@ -1,7 +1,7 @@
 import axios from "axios";
-
+const baseURL=import.meta.env.BASE_URL;
  const apiservice = axios.create({
-  baseURL: "http://localhost:5000/api", // You can override this per request
+  baseURL: baseURL, // You can override this per request
   headers: {
     "Content-Type": "application/json",
   },
