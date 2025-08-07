@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   useMediaQuery,
-  Grid,
   Card,
   CardContent,
   useTheme,
@@ -83,20 +82,20 @@ const Products = () => {
       {isMobile && (
         <Box display="flex" flexDirection="column" gap={2}>
           {productsData?.map((product) => (
-              <Card variant="outlined" key={product.id}>
-                <CardContent>
-                  <Typography variant="h6" sx={{ fontFamily: "poppins" }}>
-                    {product.name}
-                  </Typography>
-                  <Typography>Price: ₹{product.price}</Typography>
-                  <Typography>Stock: {product.stock}</Typography>
-                  <Typography>Category: {product.category}</Typography>
-                  <Typography>HSN: {product.hsnCode}</Typography>
-                  <Box mt={1}>
-                    <Link to={`/editproduct/${product.id}`}>Edit</Link>
-                  </Box>
-                </CardContent>
-              </Card>
+            <Card variant="outlined" key={product.id}>
+              <CardContent>
+                <Typography variant="h6" sx={{ fontFamily: "poppins" }}>
+                  {product.name}
+                </Typography>
+                <Typography>Price: ₹{product.price}</Typography>
+                <Typography>Stock: {product.stock}</Typography>
+                <Typography>Category: {product.category}</Typography>
+                <Typography>HSN: {product.hsnCode}</Typography>
+                <Box mt={1}>
+                  <Link to={`/editproduct/${product.id}`}>Edit</Link>
+                </Box>
+              </CardContent>
+            </Card>
           ))}
         </Box>
       )}
