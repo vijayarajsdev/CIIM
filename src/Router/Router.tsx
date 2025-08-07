@@ -6,12 +6,12 @@ import Products from "../Components/inventory/Products";
 import Dashboard from "../Components/dashboard/Dashboard";
 import ProductForm from "../Components/inventory/ProductForm";
 import CustomerForm from "../Components/customers/CustomerForm";
-import InvoiceTemplate from "../Components/invoices/InvoiceTemplate";
 import Login from "../Components/login/Login";
 import type { InvoiceData } from "../Types";
 import svnicon from "../assets/svnicon.png";
 import InvoicePreview from "../Components/pdfinvoice/InvoicePreview";
 import { ProtectedRoute } from "./ProtectedRoute";
+import InvoiceFormMobile from "../Components/invoices/InvoiceFormMobile";
 const dummyData: InvoiceData = {
   invoiceNumber: "24-25/000001",
   invoiceDate: "15/04/2024",
@@ -94,7 +94,8 @@ export const Router = createBrowserRouter([
           },
           {
             path: "invoice",
-            element: <InvoiceTemplate />,
+            element: <InvoiceFormMobile />,
+            // element: <InvoiceTemplate />,
             errorElement: <div>Oops Technical Error</div>,
           },
           {

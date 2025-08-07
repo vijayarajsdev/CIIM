@@ -1,4 +1,13 @@
-import { Typography, Box, Button } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Button,
+  useMediaQuery,
+  Grid,
+  Card,
+  CardContent,
+  useTheme,
+} from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
 import { useEffect, useState } from "react";
 import type { Product } from "../../Types";
@@ -14,6 +23,9 @@ import { fetchProducts } from "./productservice";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const Products = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const navigate = useNavigate();
   const [productsData, setProductsdata] = useState<Product[]>([]);
 
@@ -68,16 +80,38 @@ const Products = () => {
           Add Product
         </Button>
       </Box>
-      <Box sx={{ height: 550 }}>
-        <AgGridReact
-          rowData={productsData}
-          columnDefs={colDefs}
-          paginationPageSize={10}
-          pagination={true}
-          defaultColDef={defaultColDef}
-          paginationPageSizeSelector={[10, 20, 50]}
-        />
-      </Box>
+      {isMobile && (
+        <Box display="flex" flexDirection="column" gap={2}>
+          {productsData?.map((product) => (
+              <Card variant="outlined" key={product.id}>
+                <CardContent>
+                  <Typography variant="h6" sx={{ fontFamily: "poppins" }}>
+                    {product.name}
+                  </Typography>
+                  <Typography>Price: ₹{product.price}</Typography>
+                  <Typography>Stock: {product.stock}</Typography>
+                  <Typography>Category: {product.category}</Typography>
+                  <Typography>HSN: {product.hsnCode}</Typography>
+                  <Box mt={1}>
+                    <Link to={`/editproduct/${product.id}`}>Edit</Link>
+                  </Box>
+                </CardContent>
+              </Card>
+          ))}
+        </Box>
+      )}
+      {!isMobile && (
+        <Box sx={{ height: 550 }}>
+          <AgGridReact
+            rowData={productsData}
+            columnDefs={colDefs}
+            paginationPageSize={10}
+            pagination={true}
+            defaultColDef={defaultColDef}
+            paginationPageSizeSelector={[10, 20, 50]}
+          />
+        </Box>
+      )}
     </Box>
   );
 };

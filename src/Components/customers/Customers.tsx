@@ -1,4 +1,12 @@
-import { Typography, Box, Button } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
 import { useEffect, useState } from "react";
 import type { Customer } from "../../Types";
@@ -14,6 +22,9 @@ import { useAuth } from "../../Hooks/useAuth";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const Customers = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [customersData, setCustomersData] = useState<Customer[]>();
   const { user } = useAuth();
   const tenantId = user?.tenantId;
@@ -65,16 +76,39 @@ const Customers = () => {
           Add Customer
         </Button>
       </Box>
-      <Box sx={{ height: 550 }}>
-        <AgGridReact
-          rowData={customersData}
-          columnDefs={colDefs}
-          paginationPageSize={10}
-          pagination={true}
-          defaultColDef={defaultColDef}
-          paginationPageSizeSelector={[10, 20, 50]}
-        />
-      </Box>
+      {isMobile && (
+        <Box display="flex" flexDirection="column" gap={2}>
+          {customersData?.map((customer) => (
+            <Card variant="outlined" key={customer.id}>
+              <CardContent>
+                <Typography variant="h6">{customer.name}</Typography>
+                <Typography>Organisation: {customer.companyname}</Typography>
+                <Typography>
+                  GST Registered: {customer.isGstRegistered ? "Yes" : "No"}
+                </Typography>
+                <Typography>Address: {customer.address}</Typography>
+                <Typography>Mobile: {customer.phone}</Typography>
+                <Typography>GST No: {customer.gstno}</Typography>
+                <Box mt={1}>
+                  <Link to={`/editcustomer/${customer.id}`}>Edit</Link>
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      )}
+      {!isMobile && (
+        <Box sx={{ height: 550 }}>
+          <AgGridReact
+            rowData={customersData}
+            columnDefs={colDefs}
+            paginationPageSize={10}
+            pagination={true}
+            defaultColDef={defaultColDef}
+            paginationPageSizeSelector={[10, 20, 50]}
+          />
+        </Box>
+      )}
     </Box>
   );
 };

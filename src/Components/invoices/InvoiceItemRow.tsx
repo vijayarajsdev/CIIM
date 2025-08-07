@@ -25,7 +25,11 @@ export interface InvoiceItem {
 interface InvoiceItemRowProps {
   index: number;
   item: InvoiceItem;
-  onChange: (index: number, updatedItem: InvoiceItem) => void;
+  onChange: (
+    index: number,
+    field: keyof InvoiceItem,
+    value: string | number
+  ) => void;
   onDelete: (index: number) => void;
 }
 const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
@@ -34,10 +38,12 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
   onChange,
   onDelete,
 }) => {
-  const handleChange = (field: string, value: string | number) => {
-    const updatedItem: InvoiceItem = { ...item, [field]: value } as InvoiceItem;
-    updatedItem.amount = updatedItem.quantity * updatedItem.rate;
-    onChange(index, updatedItem);
+  const handleChange = (
+    index: number,
+    field: keyof InvoiceItem,
+    value: string | number
+  ) => {
+    onChange(index, field, value);
   };
 
   return (
@@ -47,7 +53,7 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
           fullWidth
           placeholder="Item name"
           value={item.name}
-          onChange={(e) => handleChange("name", e.target.value)}
+          onChange={(e) => handleChange(index, "name", e.target.value)}
           size="small"
           multiline
           maxRows={2}
@@ -58,7 +64,9 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
           fullWidth
           type="number"
           value={item.quantity}
-          onChange={(e) => handleChange("quantity", parseFloat(e.target.value))}
+          onChange={(e) =>
+            handleChange(index, "quantity", parseFloat(e.target.value))
+          }
           InputProps={{ endAdornment: <Typography>pcs</Typography> }}
           size="small"
         />
@@ -68,7 +76,9 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
           fullWidth
           type="number"
           value={item.rate}
-          onChange={(e) => handleChange("rate", parseFloat(e.target.value))}
+          onChange={(e) =>
+            handleChange(index, "rate", parseFloat(e.target.value))
+          }
           size="small"
         />
       </Grid>
@@ -77,7 +87,9 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
           select
           fullWidth
           value={item.tax}
-          onChange={(e) => handleChange("tax", parseFloat(e.target.value))}
+          onChange={(e) =>
+            handleChange(index, "tax", parseFloat(e.target.value))
+          }
           size="small"
         >
           {taxOptions.map((opt) => (
