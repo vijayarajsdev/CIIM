@@ -78,20 +78,24 @@ const CustomerForm = () => {
   };
   return (
     <Box>
-      <Typography variant="h6" sx={{ textAlign: "center", mb: 3 }}>
+      <Typography
+        variant="h6"
+        sx={{ textAlign: "center", mb: 3, fontFamily: "Poppins" }}
+      >
         {titlemode}
       </Typography>
       <Button
         onClick={handleclosecustomerform}
         sx={{
           position: "absolute",
-          right: "40px",
-          top: "80px",
+          right: "20px",
+          top: "86px",
+          marginLeft: "20px",
         }}
       >
         <CloseIcon />
       </Button>
-      <Box sx={{ maxWidth: 900, mx: "auto" }}>
+      <Box sx={{ maxWidth: 900, mx: "auto", marginTop: "20px" }}>
         <Grid container spacing={3}>
           <Grid size={{ xs: 12, md: 6 }}>
             <TextField
@@ -163,6 +167,7 @@ const CustomerForm = () => {
               variant="outlined"
               fullWidth
               multiline
+              rows={3}
               maxRows={3}
               onChange={handleChange}
               value={customer.address}
@@ -175,6 +180,7 @@ const CustomerForm = () => {
             variant="contained"
             color="primary"
             onClick={handleSaveCustomer}
+            sx={{ fontFamily: "Poppins" }}
           >
             {btnmode}
           </Button>

@@ -17,17 +17,17 @@ const InvoiceTable: React.FC<invoiceTableProps> = ({ invoicesdata }) => {
       <table>
         <tr>
           {theader.map((thead) => (
-            <th key={thead}>{thead}</th>
+            <th key={thead} style={{ fontFamily: "Poppins"}}>{thead}</th>
           ))}
         </tr>
         <tbody>
           {invoicesdata.map((data) => (
             <tr>
-              <td>{data.invoiceNumber}</td>
-              <td>{data.customerName}</td>
-              <td>{data.date}</td>
-              <td>{data.amount}</td>
-              <td>{data.status}</td>
+              <td style={{ fontFamily: "Poppins"}}>{data.invoiceNumber}</td>
+              <td style={{ fontFamily: "Poppins"}}>{data.customerName}</td>
+              <td style={{ fontFamily: "Poppins"}}>{data.date}</td>
+              <td style={{ fontFamily: "Poppins"}}>{data.amount}</td>
+              <td style={{ fontFamily: "Poppins"}}>{data.status}</td>
             </tr>
           ))}
         </tbody>

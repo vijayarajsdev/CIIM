@@ -30,11 +30,14 @@ const Invoices = () => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <Typography>INVOICES</Typography>
+        <Typography sx={{ fontFamily: "Poppins", fontWeight: "600" }}>
+          INVOICES
+        </Typography>
         <Button
           color="primary"
           variant="outlined"
           onClick={handleInvoicenavigate}
+          sx={{ fontFamily: "Poppins"}}
         >
           Add Invoice
         </Button>
@@ -45,18 +48,18 @@ const Invoices = () => {
           {rowData.map((invoice, idx) => (
             <Card key={idx} variant="outlined">
               <CardContent>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" sx={{ fontFamily: "Poppins",fontWeight:"600"}}>
                   {invoice.customerName || "Unnamed Customer"}
                 </Typography>
                 <Divider sx={{ my: 1 }} />
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ fontFamily: "Poppins"}}>
                   Invoice No: {invoice.invoiceNumber}
                 </Typography>
-                <Typography variant="body2">Date: {invoice.date}</Typography>
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ fontFamily: "Poppins"}}>Date: {invoice.date}</Typography>
+                <Typography variant="body2" sx={{ fontFamily: "Poppins"}}>
                   Amount: ₹{invoice.amount}
                 </Typography>
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ fontFamily: "Poppins"}}>
                   Status: {invoice.status}
                 </Typography>
               </CardContent>

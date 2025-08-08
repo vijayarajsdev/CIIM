@@ -71,7 +71,12 @@ const Customers = () => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <Typography>Customers</Typography>
+        <Typography
+          component="h1"
+          sx={{ fontFamily: "Poppins", fontWeight: 600 }}
+        >
+          Customers
+        </Typography>
         <Button onClick={handleCustomerForm} color="primary" variant="outlined">
           Add Customer
         </Button>
@@ -81,16 +86,34 @@ const Customers = () => {
           {customersData?.map((customer) => (
             <Card variant="outlined" key={customer.id}>
               <CardContent>
-                <Typography variant="h6">{customer.name}</Typography>
-                <Typography>Organisation: {customer.companyname}</Typography>
-                <Typography>
+                <Typography
+                  variant="h6"
+                  sx={{ fontFamily: "Poppins", fontWeight: 600 }}
+                >
+                  {customer.name}
+                </Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Organisation: {customer.companyname}
+                </Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
                   GST Registered: {customer.isGstRegistered ? "Yes" : "No"}
                 </Typography>
-                <Typography>Address: {customer.address}</Typography>
-                <Typography>Mobile: {customer.phone}</Typography>
-                <Typography>GST No: {customer.gstno}</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Address: {customer.address}
+                </Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Mobile: {customer.phone}
+                </Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  GST No: {customer.gstno}
+                </Typography>
                 <Box mt={1}>
-                  <Link to={`/editcustomer/${customer.id}`}>Edit</Link>
+                  <Link
+                    style={{ fontFamily: "Poppins", textDecoration: "none" }}
+                    to={`/editcustomer/${customer.id}`}
+                  >
+                    Edit
+                  </Link>
                 </Box>
               </CardContent>
             </Card>

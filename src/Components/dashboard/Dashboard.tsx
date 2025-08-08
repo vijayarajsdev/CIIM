@@ -1,9 +1,18 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import MonthlySalesChart from "./MonthlySalesChart";
 import TopSellingProductsChart from "./TopSellingProductsChart";
 import { customersData, productsData } from "../../Data";
 
 const Dashboard = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const totalproducts = productsData?.length;
   const totalcustomers = customersData?.length;
   return (
@@ -15,9 +24,9 @@ const Dashboard = () => {
       >
         Dashboard
       </Typography>
-      <Grid container spacing={2}>
-        <Grid>
-          <Paper elevation={3} sx={{ p: 3 }}>
+      <Grid container gap={2}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <Paper elevation={3} sx={{ p: 3, width: "200px", height: "50px" }}>
             <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
               Total Products
             </Typography>
@@ -33,8 +42,8 @@ const Dashboard = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid>
-          <Paper elevation={3} sx={{ p: 3 }}>
+        <Grid size={{ xs: 12, sm: 3, md: 3 }}>
+          <Paper elevation={3} sx={{ p: 3, width: "200px", height: "50px" }}>
             <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
               Total Customers
             </Typography>
@@ -46,8 +55,8 @@ const Dashboard = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid>
-          <Paper elevation={3} sx={{ p: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <Paper elevation={3} sx={{ p: 3, width: "200px", height: "50px" }}>
             <Typography sx={{ fontFamily: "poppins", fontWeight: 600 }}>
               Inventory Value
             </Typography>
@@ -60,17 +69,26 @@ const Dashboard = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Grid display={"flex"} justifyContent="space-between" sx={{ mt: 4 }}>
-        <Box sx={{ mt: 4, width: "40%" }}>
-          <Paper elevation={3} sx={{ p: 3, mb: 2 }}>
+      <Grid
+        sx={{
+          mt: 4,
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          justifyContent: "flex-start",
+          alignContent: "center",
+        }}
+        size={{ xs: 12, sm: 12, md: 6 }}
+      >
+        <Grid sx={{ mt: 4, mr: 10, maxWidth: "80vw", textAlign: "center" }}>
+          <Paper elevation={3} sx={{ p: 0, mb: 2 }}>
             <MonthlySalesChart />
           </Paper>
-        </Box>
-        <Box sx={{ mt: 4, width: "40%" }}>
-          <Paper elevation={3} sx={{ p: 3, mb: 2 }}>
+        </Grid>
+        <Grid sx={{ mt: 4, maxWidth: "80vw" }}>
+          <Paper elevation={3} sx={{ p: 0, mb: 2 }}>
             <TopSellingProductsChart />
           </Paper>
-        </Box>
+        </Grid>
       </Grid>
     </Box>
   );

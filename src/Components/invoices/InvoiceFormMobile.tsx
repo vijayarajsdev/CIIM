@@ -90,7 +90,9 @@ const InvoiceFormMobile = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Typography variant="h6">Create Invoice</Typography>
+            <Typography variant="h6" sx={{ fontFamily: "Poppins" }}>
+              Create Invoice
+            </Typography>
             <IconButton onClick={() => navigate("/invoices")}>
               {" "}
               <CloseIcon />{" "}
@@ -116,7 +118,7 @@ const InvoiceFormMobile = () => {
             InputLabelProps={{ shrink: true }}
           />
 
-          <Typography variant="h6" mt={3}>
+          <Typography variant="h6" mt={3} sx={{ fontFamily: "Poppins" }}>
             Items
           </Typography>
           {items.map((item, index) => (
@@ -166,7 +168,7 @@ const InvoiceFormMobile = () => {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Typography fontWeight="bold">
+                  <Typography fontWeight="bold " sx={{ fontFamily: "Poppins" }}>
                     Amount: ₹{item.amount.toFixed(2)}
                   </Typography>
                   <IconButton onClick={() => handleDeleteRow(index)}>
@@ -181,7 +183,7 @@ const InvoiceFormMobile = () => {
             startIcon={<AddIcon />}
             variant="outlined"
             fullWidth
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, fontFamily: "Poppins" }}
             onClick={handleAddRow}
           >
             Add Item
@@ -189,10 +191,14 @@ const InvoiceFormMobile = () => {
 
           <Divider sx={{ my: 3 }} />
 
-          <Typography variant="h6">Summary</Typography>
+          <Typography variant="h6" sx={{ fontFamily: "Poppins" }}>
+            Summary
+          </Typography>
           <Box display="flex" justifyContent="space-between" mt={2}>
-            <Typography>Subtotal:</Typography>
-            <Typography>₹ {subtotal.toFixed(2)}</Typography>
+            <Typography sx={{ fontFamily: "Poppins" }}>Subtotal:</Typography>
+            <Typography sx={{ fontFamily: "Poppins" }}>
+              ₹ {subtotal.toFixed(2)}
+            </Typography>
           </Box>
 
           <TextField
@@ -223,14 +229,18 @@ const InvoiceFormMobile = () => {
           />
 
           <Box display="flex" justifyContent="space-between" mt={2}>
-            <Typography fontWeight="bold">Total:</Typography>
-            <Typography fontWeight="bold">₹ {subtotal.toFixed(2)}</Typography>
+            <Typography fontWeight="bold" sx={{ fontFamily: "Poppins" }}>
+              Total:
+            </Typography>
+            <Typography fontWeight="bold" sx={{ fontFamily: "Poppins" }}>
+              ₹ {subtotal.toFixed(2)}
+            </Typography>
           </Box>
 
           <Button
             fullWidth
             variant="contained"
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, fontFamily: "Poppins" }}
             onClick={handleSave}
           >
             Save Invoice
@@ -238,7 +248,7 @@ const InvoiceFormMobile = () => {
         </>
       ) : (
         <Box>
-          <Typography variant="h6" sx={{ pl: 4 }}>
+          <Typography variant="h6" sx={{ pl: 4, fontFamily: "Poppins" }}>
             Invoice Template
           </Typography>
           <Button
@@ -252,21 +262,25 @@ const InvoiceFormMobile = () => {
           <Box sx={{ padding: 4 }}>
             <Grid container spacing={2}>
               <Grid size={1.5}>
-                <Typography>Customer Name</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Customer Name
+                </Typography>
               </Grid>
               <Grid size={10.5}>
                 <TextField variant="outlined" fullWidth size="small" />
               </Grid>
 
               <Grid size={1.5}>
-                <Typography>Order No</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Order No</Typography>
               </Grid>
               <Grid size={2.5}>
                 <TextField size="small" fullWidth />
               </Grid>
 
               <Grid size={1.5}>
-                <Typography>Invoice No</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Invoice No
+                </Typography>
               </Grid>
               <Grid size={2.5}>
                 <TextField size="small" fullWidth />
@@ -275,21 +289,23 @@ const InvoiceFormMobile = () => {
 
             <Grid container spacing={2} mt={2}>
               <Grid size={1.5}>
-                <Typography>Invoice Date</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Invoice Date
+                </Typography>
               </Grid>
               <Grid size={2.5}>
                 <TextField type="date" size="small" fullWidth />
               </Grid>
 
               <Grid size={1.5}>
-                <Typography>Terms</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Terms</Typography>
               </Grid>
               <Grid size={2.5}>
                 <TextField size="small" fullWidth />
               </Grid>
 
               <Grid size={1.5}>
-                <Typography>Due Date</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Due Date</Typography>
               </Grid>
               <Grid size={2.5}>
                 <TextField type="date" size="small" fullWidth />
@@ -300,7 +316,7 @@ const InvoiceFormMobile = () => {
           {/* Item Table */}
           <Divider />
           <Box sx={{ px: 4 }}>
-            <Typography variant="h6" mt={2}>
+            <Typography variant="h6" mt={2} sx={{ fontFamily: "Poppins" }}>
               Item Table
             </Typography>
             <Grid
@@ -308,22 +324,24 @@ const InvoiceFormMobile = () => {
               spacing={2}
               alignItems="center"
               mt={2}
-              sx={{ fontWeight: "bold" }}
+              sx={{ fontWeight: "bold", fontFamily: "Poppins" }}
             >
               <Grid size={4}>
-                <Typography>Item Details</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>
+                  Item Details
+                </Typography>
               </Grid>
               <Grid size={1.3}>
-                <Typography>Quantity</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Quantity</Typography>
               </Grid>
               <Grid size={1.2}>
-                <Typography>Rate</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Rate</Typography>
               </Grid>
               <Grid size={2}>
-                <Typography>Tax</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Tax</Typography>
               </Grid>
               <Grid size={2}>
-                <Typography>Amount</Typography>
+                <Typography sx={{ fontFamily: "Poppins" }}>Amount</Typography>
               </Grid>
               <Grid size={1}></Grid>
             </Grid>
@@ -336,7 +354,11 @@ const InvoiceFormMobile = () => {
                 onDelete={handleDeleteRow}
               />
             ))}
-            <Button variant="outlined" onClick={handleAddRow} sx={{ mt: 2 }}>
+            <Button
+              variant="outlined"
+              onClick={handleAddRow}
+              sx={{ mt: 2, fontFamily: "Poppins" }}
+            >
               + Add New Row
             </Button>
           </Box>
@@ -348,7 +370,7 @@ const InvoiceFormMobile = () => {
             <Grid container spacing={2}>
               <Grid size={6}>
                 <Button
-                  sx={{ mt: "200px", px: "30px" }}
+                  sx={{ mt: "200px", px: "30px", fontFamily: "Poppins" }}
                   variant="contained"
                   onClick={handleSave}
                 >
@@ -358,42 +380,42 @@ const InvoiceFormMobile = () => {
               <Grid size={6}>
                 <Grid container spacing={2}>
                   <Grid size={6}>
-                    <Typography>Sub Total</Typography>
+                    <Typography sx={{ fontFamily: "Poppins"}}>Sub Total</Typography>
                   </Grid>
                   <Grid size={6}>
-                    <Typography>₹ {subtotal.toFixed(2)}</Typography>
+                    <Typography sx={{ fontFamily: "Poppins"}}>₹ {subtotal.toFixed(2)}</Typography>
                   </Grid>
 
                   <Grid size={6}>
-                    <Typography>Discount</Typography>
+                    <Typography sx={{ fontFamily: "Poppins"}}>Discount</Typography>
                   </Grid>
                   <Grid size={6}>
                     <TextField size="small" fullWidth placeholder="0 %" />
                   </Grid>
 
                   <Grid size={6}>
-                    <Typography>TDS / TCS</Typography>
+                    <Typography sx={{ fontFamily: "Poppins"}}>TDS / TCS</Typography>
                   </Grid>
                   <Grid size={6}>
                     <TextField select size="small" fullWidth>
-                      <MenuItem value="">Select</MenuItem>
-                      <MenuItem value="tds">TDS</MenuItem>
-                      <MenuItem value="tcs">TCS</MenuItem>
+                      <MenuItem value="" sx={{ fontFamily: "Poppins"}}>Select</MenuItem>
+                      <MenuItem value="tds" sx={{ fontFamily: "Poppins"}}>TDS</MenuItem>
+                      <MenuItem value="tcs" sx={{ fontFamily: "Poppins"}}>TCS</MenuItem>
                     </TextField>
                   </Grid>
 
                   <Grid size={6}>
-                    <Typography>Adjustment</Typography>
+                    <Typography sx={{ fontFamily: "Poppins"}}>Adjustment</Typography>
                   </Grid>
                   <Grid size={6}>
                     <TextField size="small" fullWidth />
                   </Grid>
 
                   <Grid size={6}>
-                    <Typography fontWeight="bold">Total</Typography>
+                    <Typography fontWeight="bold" sx={{ fontFamily: "Poppins"}}>Total</Typography>
                   </Grid>
                   <Grid size={6}>
-                    <Typography fontWeight="bold">
+                    <Typography fontWeight="bold" sx={{ fontFamily: "Poppins"}}>
                       ₹ {subtotal.toFixed(2)}
                     </Typography>
                   </Grid>

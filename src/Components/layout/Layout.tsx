@@ -7,13 +7,21 @@ import { useState } from "react";
 
 const Layout = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        width: "100%",
+        overflowX: "hidden",
+      }}
+    >
       <Header onMenuClick={isMobile ? handleDrawerToggle : () => {}} />
       {/* {isMobile && <SmallScreenBlocker />} */}
 
@@ -24,6 +32,7 @@ const Layout = () => {
           component="main"
           sx={{
             flexGrow: 1,
+            flexWrap: "wrap",
             p: 3,
             mt: "64px",
             ml: isMobile ? 0 : "10px", // Only add left margin on desktop

@@ -67,7 +67,7 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
           onChange={(e) =>
             handleChange(index, "quantity", parseFloat(e.target.value))
           }
-          InputProps={{ endAdornment: <Typography>pcs</Typography> }}
+          InputProps={{ endAdornment: <Typography sx={{ fontFamily: "Poppins"}}>pcs</Typography> }}
           size="small"
         />
       </Grid>
@@ -91,16 +91,17 @@ const InvoiceItemRow: React.FC<InvoiceItemRowProps> = ({
             handleChange(index, "tax", parseFloat(e.target.value))
           }
           size="small"
+          sx={{ fontFamily: "Poppins"}}
         >
           {taxOptions.map((opt) => (
-            <MenuItem key={opt.value} value={opt.value}>
+            <MenuItem key={opt.value} value={opt.value} sx={{ fontFamily: "Poppins"}}>
               {opt.label}
             </MenuItem>
           ))}
         </TextField>
       </Grid>
       <Grid size={2}>
-        <Typography sx={{ pt: 1 }}>₹ {item.amount.toFixed(2)}</Typography>
+        <Typography sx={{ pt: 1 ,fontFamily:"Poppins"}}>₹ {item.amount.toFixed(2)}</Typography>
       </Grid>
       <Grid size={1}>
         <IconButton color="error" onClick={() => onDelete(index)}>

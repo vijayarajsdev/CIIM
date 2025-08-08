@@ -74,7 +74,12 @@ const Products = () => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <Typography>Inventory</Typography>
+        <Typography
+          component="h1"
+          sx={{ fontFamily: "poppins", fontWeight: "600" }}
+        >
+          Inventory
+        </Typography>
         <Button onClick={handleProductForm} color="primary" variant="outlined">
           Add Product
         </Button>
@@ -92,7 +97,17 @@ const Products = () => {
                 <Typography>Category: {product.category}</Typography>
                 <Typography>HSN: {product.hsnCode}</Typography>
                 <Box mt={1}>
-                  <Link to={`/editproduct/${product.id}`}>Edit</Link>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      fontFamily: "popppins",
+                      fontWeight: "600",
+                      color: "blue",
+                    }}
+                    to={`/editproduct/${product.id}`}
+                  >
+                    Edit
+                  </Link>
                 </Box>
               </CardContent>
             </Card>

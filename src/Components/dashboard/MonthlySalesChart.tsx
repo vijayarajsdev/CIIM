@@ -1,9 +1,11 @@
 import { AgCharts } from "ag-charts-react";
 import type { AgLineSeriesOptions } from "ag-charts-types";
-  import { data } from "../../Data";
+import { data } from "../../Data";
 const options = {
   title: {
     text: "Monthly Sales Data",
+    fontFamily: "poppins",
+    color: "#4A3AFF",
   },
   data: data,
   series: [

@@ -14,10 +14,18 @@ type HeaderProps = {
 const Header = ({ onMenuClick }: HeaderProps) => {
   const { user } = useAuth();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "black", zIndex: 1200 }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "black",
+        zIndex: 1200,
+        overflowX: "hidden",
+        width: "100%",
+      }}
+    >
       <Toolbar>
         {isMobile && (
           <IconButton

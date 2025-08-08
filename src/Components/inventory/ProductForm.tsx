@@ -88,13 +88,13 @@ const ProductForm = () => {
         onClick={handlecloseproductform}
         sx={{
           position: "absolute",
-          right: "40px",
+          right: "5px",
           top: "80px",
         }}
       >
         <CloseIcon />
       </Button>
-      <Box>
+      <Box sx={{ marginTop: "30px" }}>
         <TextField
           id="outlined-basic"
           label="ITEM"
@@ -142,7 +142,6 @@ const ProductForm = () => {
           <MenuItem value="fittings">FITTINGS</MenuItem>
         </TextField>
       </Box>
-
       <Box>
         <TextField
           id="outlined-basic"

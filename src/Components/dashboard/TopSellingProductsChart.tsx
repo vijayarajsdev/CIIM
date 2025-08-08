@@ -9,6 +9,8 @@ const options: AgCartesianChartOptions = {
   title: {
     text: "Top Selling Products",
     color: "#4A3AFF",
+    fontFamily: "poppins",
+    fontWeight: "normal",
   },
   data: topSellingProducts,
   series: [
