@@ -12,7 +12,7 @@ import { customersData, productsData } from "../../Data";
 
 const Dashboard = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const totalproducts = productsData?.length;
   const totalcustomers = customersData?.length;
   return (

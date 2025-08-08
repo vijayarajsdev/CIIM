@@ -14,7 +14,7 @@ type HeaderProps = {
 const Header = ({ onMenuClick }: HeaderProps) => {
   const { user } = useAuth();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <AppBar
